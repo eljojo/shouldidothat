@@ -9,6 +9,7 @@ import (
   "github.com/ChimeraCoder/anaconda"
   "os"
   "encoding/json"
+  "flag"
 )
 
 func decode(conn *twitterstream.Connection) {
@@ -38,7 +39,11 @@ type Configuration struct {
 var conf = Configuration{}
 
 func main() {
-  file, _ := os.Open("conf.json")
+  config_file := flag.String("c", "conf.json", "config file path")
+  flag.Parse()
+  log.Printf("loading config from %s\n", *config_file)
+
+  file, _ := os.Open(*config_file)
   decoder := json.NewDecoder(file)
   err := decoder.Decode(&conf)
   if err != nil {

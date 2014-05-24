@@ -21,3 +21,5 @@ Create a json file called ``conf.json`` and put the credentials like this:
 
 then ``go build`` and now you're ready to run ``./shouldidothat``
 
+You can also specify the path for the config file with the argument ``-c /path/to/config.json``
+
