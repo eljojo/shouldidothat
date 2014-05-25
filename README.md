@@ -23,3 +23,20 @@ then ``go build`` and now you're ready to run ``./shouldidothat``
 
 You can also specify the path for the config file with the argument ``-c /path/to/config.json``
 
+## How to build docker image?
+
+You can build as usual, with ``docker build -t shouldidothat .``
+
+
+## How to run docker image?
+
+The image will launch the shouldidothat daemon automatically, but it's expecting
+the configuration file to be in ``/etc/shouldidothat/conf.json`
+
+You should run the image with a command like
+
+```
+docker run -v /host/shouldidothat/conf.json:/etc/shouldidothat/conf.json shouldidothat
+```
+
+
